@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const Card = () => {
+const Card2 = () => {
   return (
     <div className="container">
-      <h1 className="text-danger">Characters</h1>
+      <h1 className="text-danger">Planets</h1>
       <div className="row">
         <div className="col-md-3">
           <div className="card my-4" style={{ width: "18rem" }}>
@@ -21,10 +21,10 @@ const Card = () => {
                 the bulk of the card's content.
               </p>
               <div className="d-flex justify-content-between px-2">
-                <Link to="/demo">
-                  <a href="#" className="btn btn-outline-primary">
-                    Learn More!
-                  </a>
+              <Link to="/demo">
+                <a href="#" className="btn btn-outline-primary">
+                  Learn More!
+                </a>
                 </Link>
                 <button type="button" class="btn btn-outline-warning">
                   <FaHeart />
@@ -35,7 +35,7 @@ const Card = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card2
