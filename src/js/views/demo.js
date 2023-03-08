@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 import "../../styles/demo.css";
+import Card from '../component/card'
 
 export const Demo = () => {
 	const { store, actions } = useContext(Context);
@@ -38,6 +39,8 @@ export const Demo = () => {
 			<Link to="/">
 				<button className="btn btn-primary">Back home</button>
 			</Link>
+			<Card/>
 		</div>
+		
 	);
 };
