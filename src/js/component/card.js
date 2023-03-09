@@ -2,7 +2,10 @@ import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const Card = () => {
+
+const Card = (props) => {
+  
+
   return (
     <div className="container">
       <h1 className="text-danger">Characters</h1>
@@ -16,10 +19,7 @@ const Card = () => {
             />
             <div className="card-body">
               <h5 className="card-title">Card title</h5>
-              <p className="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
+              <p className="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati quam explicabo neque qui debitis voluptatibus aliquid, aliquam nobis dignissimos rerum, quas cum incidunt eum provident praesentium! Quo tenetur ipsam error!</p>
               <div className="d-flex justify-content-between px-2">
                 <Link to="/demo">
                   <a href="#" className="btn btn-outline-primary">

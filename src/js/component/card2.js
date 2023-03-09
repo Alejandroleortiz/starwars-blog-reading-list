@@ -2,6 +2,7 @@ import React from 'react'
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+
 const Card2 = () => {
   return (
     <div className="container">
