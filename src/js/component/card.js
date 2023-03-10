@@ -3,7 +3,7 @@ import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 
-const Card = (props) => {
+const Character = (props) => {
   
 
   return (
@@ -37,4 +37,4 @@ const Card = (props) => {
   );
 };
 
-export default Card;
+export default Character;
