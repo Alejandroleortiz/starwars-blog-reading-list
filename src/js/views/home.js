@@ -14,8 +14,9 @@ export const Home = () => {
     <div className="row">
       {
         !!store.characters &&
-        store.characters?.results.map(()=>{
-          return ( <div className="col-md-3"><Card/></div> )
+        store.characters?.results.map((character)=>{
+          console.log(character);
+          return ( <div className="col-md-3"><Card  {...character}/></div> )
         })
       }
     </div>
