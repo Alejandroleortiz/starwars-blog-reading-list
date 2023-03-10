@@ -11,11 +11,12 @@ export const Home = () => {
 
     <>
   <div className="container">
+  <h1 className="text-danger">Characters</h1>
     <div className="row">
       {
         !!store.characters &&
         store.characters?.results.map(()=>{
-          return ( <div className="col-md-4"><Card/></div> )
+          return ( <div className="col-md-3"><Card/></div> )
         })
       }
     </div>

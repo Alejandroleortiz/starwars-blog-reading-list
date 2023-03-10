@@ -8,7 +8,6 @@ const Card = (props) => {
 
   return (
     <div className="container">
-      <h1 className="text-danger">Characters</h1>
       <div className="row">
         <div className="col-md-3">
           <div className="card my-4" style={{ width: "18rem" }}>
