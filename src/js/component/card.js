@@ -1,9 +1,10 @@
 import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { checkPropTypes } from "prop-types";
 
 
-const Character = (props) => {
+const Card= (props) => {
   
 
   return (
@@ -17,8 +18,10 @@ const Character = (props) => {
               alt="..."
             />
             <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati quam explicabo neque qui debitis voluptatibus aliquid, aliquam nobis dignissimos rerum, quas cum incidunt eum provident praesentium! Quo tenetur ipsam error!</p>
+              <h5 className="card-title">{props.title}</h5>
+              <p className="card-text">{props.descripOne}</p>
+              <p className="card-text">{props.descripTwo}</p>
+              <p className="card-text">{props.descripThree}</p>
               <div className="d-flex justify-content-between px-2">
                 <Link to="/demo">
                   <a href="#" className="btn btn-outline-primary">
@@ -37,4 +40,11 @@ const Character = (props) => {
   );
 };
 
-export default Character;
+checkPropTypes = {
+title: checkPropTypes.string,
+descripOne: checkPropTypes.string,
+descripTwo: checkPropTypes.string,
+descripThree: checkPropTypes.string,
+}
+
+export default Card;

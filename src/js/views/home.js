@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/home.css";
-import Character from "../component/card";
+import Card from "../component/card";
 import { Context } from "../store/appContext";
 import { useContext } from "react";
 
@@ -15,7 +15,7 @@ export const Home = () => {
       {
         !!store.characters &&
         store.characters?.results.map(()=>{
-          return ( <div className="col-md-3"><Character/></div> )
+          return ( <div className="col-md-3"><Card/></div> )
         })
       }
     </div>
