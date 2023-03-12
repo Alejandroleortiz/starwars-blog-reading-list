@@ -16,7 +16,7 @@ export const Home = () => {
         !!store.characters &&
         store.characters?.results.map((character)=>{
           console.log(character);
-          return ( <div className="col-md-3"><Card  {...character}/></div> )
+          return ( <div className="col-md-3"><Card  {...character.properties}/></div> )
         })
       }
     </div>

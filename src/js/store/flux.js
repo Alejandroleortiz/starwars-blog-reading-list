@@ -17,7 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       planets: null,
     },
     actions: {
-      // Use getActions to call a function within a fuction
+      // Use getActions to call a function within a function
 
       getCharacter: async () => {
         const url = "https://www.swapi.tech/api/people";
@@ -31,12 +31,12 @@ const getState = ({ getStore, getActions, setStore }) => {
               const resp = await fetch(characters.results[i].url);
               const data = await resp.json();
               characters.results[i].properties = data?.result?.properties;
-              console.log(characters);
             } catch (error) {
               console.log(error);
             }
           }
          setStore({
+          ...getStore(),
           characters: characters,
         });
           
@@ -46,19 +46,30 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       
 
-      getPlanets: () => {
-        const url = "https://www.swapi.tech/api";
-        console.log("fetching data...");
+      getPlanets: async () => {
+        const url = "https://www.swapi.tech/api/planets";
+        console.log("fetching planets...");
         console.log(url);
-        fetch(`${url}/planets`)
-          .then((resp) => resp.json())
-          .then((data) => {
-            console.log(data);
-            setStore({
-              planets: data,
-            });
-          })
-          .catch((error) => console.log(error));
+        try {
+          const response = await fetch(url);
+          const planets = await response.json();
+          for (let i = 0; i < planets.results.length; i++) {
+            try {
+              const resp = await fetch(planets.results[i].url);
+              const data = await resp.json();
+              planets.results[i].properties = data?.result?.properties;
+            } catch (error) {
+              console.log(error);
+            }
+          }
+         setStore({
+          ...getStore(),
+          planets: planets,
+        });
+          
+        } catch (error) {
+          console.log(error);
+        }
       },
     },
   };

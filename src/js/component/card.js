@@ -13,10 +13,10 @@ const Card = (props) => {
       />
       <div className="card-body">
         <h5 className="card-title">{props?.name}</h5>
-        <p className="card-text">{props?.eye_color}</p>
-        <p className="card-text">{props?.hair_color}</p>
-        <p className="card-text">{props?.gender}</p>
-        <div className="d-flex justify-content-between px-2">
+        <p className="card-text my-0">Eye color: {props?.eye_color}</p>
+        <p className="card-text my-0">Hair color: {props?.hair_color}</p>
+        <p className="card-text my-0">Gender: {props?.gender}</p>
+        <div className="d-flex justify-content-between mt-4">
           <Link to="/demo">
             <a href="#" className="btn btn-outline-primary">
               Learn More!
