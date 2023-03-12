@@ -19,20 +19,32 @@ const getState = ({ getStore, getActions, setStore }) => {
     actions: {
       // Use getActions to call a function within a fuction
 
-      getCharacter: () => {
-        const url = "https://www.swapi.tech/api";
-        console.log("fetching data...");
+      getCharacter: async () => {
+        const url = "https://www.swapi.tech/api/people";
+        console.log("fetching characters...");
         console.log(url);
-        fetch(`${url}/people`)
-          .then((resp) => resp.json())
-          .then((data) => {
-            console.log(data);
-            setStore({
-              characters: data,
-            });
-          })
-          .catch((error) => console.log(error));
+        try {
+          const response = await fetch(url);
+          const characters = await response.json();
+          for (let i = 0; i < characters.results.length; i++) {
+            try {
+              const resp = await fetch(characters.results[i].url);
+              const data = await resp.json();
+              characters.results[i].properties = data?.result?.properties;
+              console.log(characters);
+            } catch (error) {
+              console.log(error);
+            }
+          }
+         setStore({
+          characters: characters,
+        });
+          
+        } catch (error) {
+          console.log(error);
+        }
       },
+      
 
       getPlanets: () => {
         const url = "https://www.swapi.tech/api";
