@@ -24,14 +24,15 @@ export const Navbar = () => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Favorites <span className="badge text-bg-secondary">4</span>
+              Favorites <span className="badge text-bg-secondary">{store.favorites.length} </span>
             </button>
             <ul className="dropdown-menu">
               {store.favorites.map((favorite) => {
                 return (
-                  <li className=" justify-content-between px-2 dropdown-item text-primary">
-                    {favorite}
-                  </li>
+                  <div className="d-flex justify-content-between px-2">
+                  <span>{favorite}</span>
+                  <span><FaTrash/></span>
+                  </div>
                 );
               })}
             </ul>
