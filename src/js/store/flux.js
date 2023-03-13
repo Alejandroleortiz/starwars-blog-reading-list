@@ -36,16 +36,13 @@ const getState = ({ getStore, getActions, setStore }) => {
               console.log(error);
             }
           }
-         setStore({
-          ...getStore(),
-          characters: characters,
-        });
-          
+          setStore({
+            characters: characters,
+          });
         } catch (error) {
           console.log(error);
         }
       },
-      
 
       getPlanets: async () => {
         const url = "https://www.swapi.tech/api/planets";
@@ -63,11 +60,9 @@ const getState = ({ getStore, getActions, setStore }) => {
               console.log(error);
             }
           }
-         setStore({
-          ...getStore(),
-          planets: planets,
-        });
-          
+          setStore({
+            planets: planets,
+          });
         } catch (error) {
           console.log(error);
         }
@@ -76,10 +71,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       addFavorite: (favorite) => {
         const { favorites } = getStore();
         setStore({
-          ...getStore(),
-          favorites: [...favorites, favorite]
-        });} 
-      
+          favorites: [...favorites, favorite],
+        });
+      },
     },
   };
 };
