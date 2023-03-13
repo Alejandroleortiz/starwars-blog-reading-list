@@ -2,8 +2,17 @@ import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { checkPropTypes } from "prop-types";
+import { Context } from "../store/appContext";
+import { useContext } from "react";
 
 const Card = (props) => {
+  
+  const { store, actions } = useContext(Context);
+
+  const handleAddFavorite = () => {
+    actions.addFavorite(props.name);
+  };
+
   return (
     <div className="card my-4" style={{ width: "18rem" }}>
       <img
@@ -22,7 +31,11 @@ const Card = (props) => {
               Learn More!
             </a>
           </Link>
-          <button type="button" class="btn btn-outline-warning">
+          <button
+            type="button"
+            class="btn btn-outline-warning"
+            onClick={handleAddFavorite}
+          >
             <FaHeart />
           </button>
         </div>
