@@ -25,7 +25,7 @@ export const Navbar = () => {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Favorites
+              Favorites {'  '}
               <span className="badge text-bg-secondary">
                 {store.favorites.length}
               </span>
