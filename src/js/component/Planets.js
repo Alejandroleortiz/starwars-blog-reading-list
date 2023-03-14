@@ -24,10 +24,8 @@ function Planets(props) {
         <p className="card-text my-0">Population: {props?.population}</p>
         <p className="card-text my-0">Terrain: {props?.terrain}</p>
         <div className="d-flex justify-content-between mt-4">
-          <Link to="/demo">
-            <a href="#" className="btn btn-outline-primary">
-              Learn More!
-            </a>
+          <Link to="/demo" className="btn btn-outline-primary">
+            Learn More!
           </Link>
           <button
             type="button"

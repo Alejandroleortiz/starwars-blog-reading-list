@@ -6,13 +6,11 @@ import { Context } from "../store/appContext";
 import { useContext } from "react";
 
 const Card = (props) => {
-  
   const { store, actions } = useContext(Context);
 
   const handleAddFavorite = () => {
     actions.addFavorite(props.name);
   };
-
 
   return (
     <div className="card my-4" style={{ width: "18rem" }}>
@@ -27,17 +25,13 @@ const Card = (props) => {
         <p className="card-text my-0">Hair color: {props?.hair_color}</p>
         <p className="card-text my-0">Gender: {props?.gender}</p>
         <div className="d-flex justify-content-between mt-4">
-          <Link to="/demo">
-            <a href="#" className="btn btn-outline-primary">
-              Learn More!
-            </a>
+          <Link to="/demo" className="btn btn-outline-primary">
+            Learn More!
           </Link>
           <button
             type="button"
             className="btn btn-outline-warning"
-            
             disabled={store.favorites.includes(props.name)}
-
             onClick={handleAddFavorite}
           >
             <FaHeart />
