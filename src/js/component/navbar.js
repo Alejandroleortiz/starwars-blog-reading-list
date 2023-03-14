@@ -22,16 +22,25 @@ export const Navbar = () => {
               type="button"
               className="btn btn-primary btn-lg"
               data-bs-toggle="dropdown"
+              aria-haspopup="true"
               aria-expanded="false"
             >
-              Favorites <span className="badge text-bg-secondary">{store.favorites.length} </span>
+              Favorites
+              <span className="badge text-bg-secondary">
+                {store.favorites.length}
+              </span>
             </button>
             <ul className="dropdown-menu">
-              {store.favorites.map((favorite) => {
+              {store.favorites.map((favorite, index) => {
                 return (
-                  <div className="d-flex justify-content-between px-2">
-                  <span>{favorite}</span>
-                  <span><FaTrash/></span>
+                  <div
+                    className="d-flex justify-content-between px-2"
+                    key={index}
+                  >
+                    <span>{favorite}</span>
+                    <span>
+                      <FaTrash onClick={() => actions.deleteFavorite(index)}/>
+                    </span>
                   </div>
                 );
               })}
