@@ -13,6 +13,7 @@ const Card = (props) => {
     actions.addFavorite(props.name);
   };
 
+
   return (
     <div className="card my-4" style={{ width: "18rem" }}>
       <img
@@ -33,7 +34,10 @@ const Card = (props) => {
           </Link>
           <button
             type="button"
-            class="btn btn-outline-warning"
+            className="btn btn-outline-warning"
+            
+            disabled={store.favorites.includes(props.name)}
+
             onClick={handleAddFavorite}
           >
             <FaHeart />
