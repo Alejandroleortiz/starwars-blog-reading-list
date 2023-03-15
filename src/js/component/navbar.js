@@ -20,7 +20,7 @@ export const Navbar = () => {
           <div className="dropdown">
             <button
               type="button"
-              className="btn btn-primary btn-lg"
+              className="btn btn-primary btn-lg dropdown-toggle"
               data-bs-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
@@ -30,7 +30,7 @@ export const Navbar = () => {
                 {store.favorites.length}
               </span>
             </button>
-            <ul className="dropdown-menu">
+            <div className="dropdown-menu" onClick={(e) => e.stopPropagation()}>
               {store.favorites.map((favorite, index) => {
                 return (
                   <div
@@ -44,7 +44,7 @@ export const Navbar = () => {
                   </div>
                 );
               })}
-            </ul>
+            </div>
           </div>
         </div>
       </div>
