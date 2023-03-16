@@ -13,24 +13,24 @@ const Card = (props) => {
   };
 
   return (
-    <div className="card my-4" style={{ width: "18rem" }}>
+    <div className="card my-4 border-0 bg-dark" style={{ width: "18rem" }}>
       <img
         src="https://dummyimage.com/400x200/cccccc/f2f2f2.png"
         className="card-img-top"
         alt="..."
       />
-      <div className="card-body">
+      <div className="card-body text-white rounded-bottom">
         <h5 className="card-title">{props?.name}</h5>
         <p className="card-text my-0">Eye color: {props?.eye_color}</p>
         <p className="card-text my-0">Hair color: {props?.hair_color}</p>
         <p className="card-text my-0">Gender: {props?.gender}</p>
         <div className="d-flex justify-content-between mt-4">
-          <Link to="/demo" className="btn btn-outline-primary">
+          <Link to="/demo" className="btn btn-outline-warning">
             Learn More!
           </Link>
           <button
             type="button"
-            className="btn btn-outline-warning"
+            className="btn btn-danger"
             disabled={store.favorites.includes(props.name)}
             onClick={handleAddFavorite}
           >

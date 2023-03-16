@@ -20,30 +20,36 @@ export const Navbar = () => {
           <div className="dropdown">
             <button
               type="button"
-              className="btn btn-primary btn-lg dropdown-toggle"
+              className="btn btn-dark btn-lg dropdown-toggle"
               data-bs-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Favorites {'  '}
-              <span className="badge text-bg-secondary">
+              Favorites {"  "}
+              <span className="badge text-bg-warning">
                 {store.favorites.length}
               </span>
             </button>
             <div className="dropdown-menu" onClick={(e) => e.stopPropagation()}>
-              {store.favorites.map((favorite, index) => {
-                return (
-                  <div
-                    className="d-flex justify-content-between px-2"
-                    key={index}
-                  >
-                    <span>{favorite}</span>
-                    <span>
-                      <FaTrash onClick={() => actions.deleteFavorite(index)}/>
-                    </span>
-                  </div>
-                );
-              })}
+              {store.favorites.length === 0 ? ( //operador ternario, si no hay nada en favorito, dice vacio
+                <div className="px-2 text-center">Empty</div>
+              ) : (
+                store.favorites.map((favorite, index) => {
+                  return (
+                    <div
+                      className="d-flex justify-content-between px-2"
+                      key={index}
+                    >
+                      <span>{favorite}</span>
+                      <span>
+                        <FaTrash
+                          onClick={() => actions.deleteFavorite(index)}
+                        />
+                      </span>
+                    </div>
+                  );
+                })
+              )}
             </div>
           </div>
         </div>
