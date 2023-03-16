@@ -27,7 +27,7 @@ export const Home = () => {
         </div>
 
         <div className="container">
-          <h1 className="text-white font-monospace py-3">Planets</h1>
+          <h1 className="text-white font-monospace py-4">Planets</h1>
           <div className="row">
             {
               !!store.planets &&
