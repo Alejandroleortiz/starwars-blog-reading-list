@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/home.css";
-import Card from "../component/card";
+import Characters  from "../component/Characters";
 import Planets from "../component/Planets";
 import { Context } from "../store/appContext";
 import { useContext } from "react";
@@ -20,7 +20,7 @@ export const Home = () => {
               !!store.characters &&
               store.characters?.results.map((character) => {
                 console.log(character);
-                return (<div className="col-md-3"><Card  {...character.properties} /></div>)
+                return (<div className="col-md-3"><Characters   {...character.properties} /></div>)
               })
             }
           </div>

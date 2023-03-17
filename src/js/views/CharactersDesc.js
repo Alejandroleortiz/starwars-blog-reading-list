@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 
 import { Context } from "../store/appContext";
 
 import "../../styles/demo.css";
 import DescriptionCard from "../component/DescriptionCard";
 
-export const Demo = () => {
+export const CharactersDesc = () => {
   const { store, actions } = useContext(Context);
 
   return (
