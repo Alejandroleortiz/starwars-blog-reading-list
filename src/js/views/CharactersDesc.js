@@ -6,11 +6,11 @@ import "../../styles/demo.css";
 import DescriptionCard from "../component/DescriptionCard";
 
 export const CharactersDesc = () => {
-  const { store, actions } = useContext(Context);
+  
 
   return (
     <>
-      <DescriptionCard />
+      <DescriptionCard/>
     </>
   );
 };

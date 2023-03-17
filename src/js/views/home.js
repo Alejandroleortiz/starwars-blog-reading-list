@@ -20,7 +20,7 @@ export const Home = () => {
               !!store.characters &&
               store.characters?.results.map((character) => {
                 console.log(character);
-                return (<div className="col-md-3"><Characters   {...character.properties} /></div>)
+                return (<div className="col-md-3"><Characters   {...character.properties} url={"/characters/"+ store.characters?.results.uid} /></div>)
               })
             }
           </div>

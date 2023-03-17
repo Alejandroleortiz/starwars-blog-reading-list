@@ -1,6 +1,13 @@
 import React from 'react'
 
+import { Context } from "../store/appContext";
+import { useContext } from "react";
+
 function DescriptionCard() {
+
+    const { store, actions } = useContext(Context);
+    
+
     return (
         <>
             <div className="container">

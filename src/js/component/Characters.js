@@ -25,7 +25,7 @@ const Characters = (props) => {
         <p className="card-text my-0">Hair color: {props?.hair_color}</p>
         <p className="card-text my-0">Gender: {props?.gender}</p>
         <div className="d-flex justify-content-between mt-4">
-          <Link to="/characters" className="btn btn-outline-warning">
+          <Link to={`/characters/${props?.uid}`} className="btn btn-outline-warning">
             Learn More!
           </Link>
           <button
@@ -47,6 +47,7 @@ checkPropTypes = {
   eye_color: checkPropTypes.string,
   hair_color: checkPropTypes.string,
   gender: checkPropTypes.string,
+  uid: checkPropTypes.string,
 };
 
 export default Characters;
