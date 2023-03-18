@@ -5,7 +5,7 @@ import { checkPropTypes } from "prop-types";
 import { Context } from "../store/appContext";
 import { useContext } from "react";
 
-const Characters = (props) => {
+function Planet (props) {
   const { store, actions } = useContext(Context);
 
   const handleAddFavorite = () => {
@@ -13,7 +13,7 @@ const Characters = (props) => {
   };
 
   return (
-    <div className="card my-4 border-0 bg-dark" style={{ width: "18rem" }}>
+    <div className="card bg-dark my-4" style={{ width: "18rem" }}>
       <img
         src="https://dummyimage.com/400x200/cccccc/f2f2f2.png"
         className="card-img-top"
@@ -21,11 +21,10 @@ const Characters = (props) => {
       />
       <div className="card-body text-white rounded-bottom">
         <h5 className="card-title">{props?.name}</h5>
-        <p className="card-text my-0">Eye color: {props?.eye_color}</p>
-        <p className="card-text my-0">Hair color: {props?.hair_color}</p>
-        <p className="card-text my-0">Gender: {props?.gender}</p>
+        <p className="card-text my-0">Population: {props?.population}</p>
+        <p className="card-text my-0">Terrain: {props?.terrain}</p>
         <div className="d-flex justify-content-between mt-4">
-          <Link to={`/characters/${props?.uid}`} className="btn btn-outline-warning">
+        <Link to={`/planets/${props?.uid}`} className="btn btn-outline-warning">
             Learn More!
           </Link>
           <button
@@ -40,14 +39,13 @@ const Characters = (props) => {
       </div>
     </div>
   );
-};
+}
 
 checkPropTypes = {
   name: checkPropTypes.string,
-  eye_color: checkPropTypes.string,
-  hair_color: checkPropTypes.string,
-  gender: checkPropTypes.string,
+  population: checkPropTypes.string,
+  terrain: checkPropTypes.string,
   uid: checkPropTypes.string,
 };
 
-export default Characters;
+export default Planet;
