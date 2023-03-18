@@ -1,27 +1,32 @@
-
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/demo.css";
 import DescriptionCard from "../component/DescriptionCard";
 import { useParams } from "react-router"; 
 
 export const CharactersDesc = () => {
-  const {uid} = useParams()
+  const { uid } = useParams();
   console.log(uid);
-  
+
   const { store, actions } = useContext(Context);
-  console.log(JSON.stringify(store)+ " " + "estos son los resultados")
+  console.log(JSON.stringify(store) + " " + "estos son los resultados");
 
-  // useEffect(() => {
+  const [characters, setCharacters] = useState(null);
 
-  //   state.actions.getCharacter();
-  // }, []);
+  const getCharacter = () => {
+    fetch("https://www.swapi.tech/api/people/" + uid)
+      .then(res => res.json())
+      .then(data => setCharacters(data))
+      .catch(err => console.error(err));
+  };
 
-  
+  useEffect(() => {
+    getCharacter();
+  }, [uid]);
 
   return (
     <>
-      <DescriptionCard  name={store?.characters.name} />
+      {characters && <DescriptionCard name={characters.result.properties.name} />}
     </>
   );
 };
