@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
-import { CharactersDesc } from "./views/CharactersDesc";
+import { DescriptionCharacters } from "./views/DescriptionCharacters";
 import { DescriptionPlanets } from "./views/DescriptionPlanets";
 import injectContext from "./store/appContext";
 
@@ -22,7 +22,7 @@ const Layout = () => {
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<Home />} />
-						<Route path="/characters/:uid" element={<CharactersDesc />} />
+						<Route path="/characters/:uid" element={<DescriptionCharacters />} />
 						<Route path="/planets/:uid" element={<DescriptionPlanets />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>

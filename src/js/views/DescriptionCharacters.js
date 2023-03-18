@@ -1,16 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Context } from "../store/appContext";
+import React, {  useEffect, useState } from "react";
 import "../../styles/demo.css";
 import DescriptionCharacter from "../component/DescriptionCharacter";
 import { useParams } from "react-router";
 
-export const CharactersDesc = () => {
+export const DescriptionCharacters = () => {
   const { uid } = useParams();
-  console.log(uid);
-
-  const { store, actions } = useContext(Context);
-  console.log(JSON.stringify(store) + " " + "estos son los resultados");
-
   const [characters, setCharacters] = useState(null);
 
   const getCharacter = () => {
