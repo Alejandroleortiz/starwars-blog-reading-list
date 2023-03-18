@@ -1,12 +1,12 @@
-import React from 'react'
-
-import { Context } from "../store/appContext";
+import React from "react";
+import { checkPropTypes } from "prop-types";
 import { useContext } from "react";
+import { Context } from "../store/appContext";
 
-function DescriptionCard() {
+function DescriptionCard(props) {
 
     const { store, actions } = useContext(Context);
-    
+    console.log(props);
 
     return (
         <>
@@ -16,7 +16,7 @@ function DescriptionCard() {
                         <img src="https://dummyimage.com/800x600/cccccc/f2f2f2.png" style={{ width: "40rem" }} className="figure-img img-fluid rounded" alt="..." />
                     </figure>
                     <div className='col-md-6 text-center'>
-                        <h1>Name</h1>
+                        <h1>{props?.name}</h1>
                         <p>Lorem ipsum dolor sit, amet consectetur 
                             adipisicing elit. Odit commodi voluptates possimus 
                             tempora ipsa incidunt libero itaque provident cumque. 
@@ -28,5 +28,8 @@ function DescriptionCard() {
         </>
     )
 }
+checkPropTypes = {
+    name: checkPropTypes.string,
+  };
 
 export default DescriptionCard
