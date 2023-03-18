@@ -33,7 +33,7 @@ export const Home = () => {
               !!store.planets &&
               store.planets?.results.map((planet) => {
                 console.log(planet);
-                return (<div className="col-md-3"><Planets  {...planet.properties} /></div>)
+                return (<div className="col-md-3"><Planets  {...planet.properties} uid={planet.uid} /></div>)
               })
             }
           </div>

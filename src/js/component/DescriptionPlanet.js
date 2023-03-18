@@ -1,12 +1,7 @@
-import React from "react";
+import React from 'react'
 import { checkPropTypes } from "prop-types";
-import { useContext } from "react";
-import { Context } from "../store/appContext";
 
-function DescriptionCard(props) {
-
-    const { store, actions } = useContext(Context);
-    console.log(props);
+function DescriptionPlanet(props) {
 
     return (
         <>
@@ -38,16 +33,12 @@ function DescriptionCard(props) {
                                 <td><span>{props?.name}</span></td>
                             </tr>
                             <tr>
-                                <td><strong>EYE COLOR</strong></td>
-                                <td><span>{props?.eye_color}</span></td>
+                                <td><strong>POPULATION</strong></td>
+                                <td><span>{props?.population}</span></td>
                             </tr>
                             <tr>
-                                <td><strong>HAIR COLOR</strong></td>
-                                <td><span>{props?.hair_color}</span></td>
-                            </tr>
-                            <tr>
-                                <td><strong>GENDER</strong></td>
-                                <td><span>{props?.gender}</span></td>
+                                <td><strong>TERRAIN</strong></td>
+                                <td><span>{props?.terrain}</span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -59,11 +50,11 @@ function DescriptionCard(props) {
 
     )
 }
+
 checkPropTypes = {
     name: checkPropTypes.string,
-    eye_color: checkPropTypes.string,
-    hair_color: checkPropTypes.string,
-    gender: checkPropTypes.string,
-};
+    population: checkPropTypes.string,
+    terrain: checkPropTypes.string,
+  };
 
-export default DescriptionCard
+export default DescriptionPlanet

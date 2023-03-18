@@ -1,27 +1,27 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/demo.css";
-import DescriptionCharacter from "../component/DescriptionCharacter";
+import DescriptionPlanet from "../component/DescriptionPlanet";
 import { useParams } from "react-router";
 
-export const CharactersDesc = () => {
+export const DescriptionPlanets = () => {
   const { uid } = useParams();
   console.log(uid);
 
   const { store, actions } = useContext(Context);
   console.log(JSON.stringify(store) + " " + "estos son los resultados");
 
-  const [characters, setCharacters] = useState(null);
+  const [planets, setplanets] = useState(null);
 
-  const getCharacter = () => {
-    fetch("https://www.swapi.tech/api/people/" + uid)
+  const getPlanet = () => {
+    fetch("https://www.swapi.tech/api/planets/" + uid)
       .then((res) => res.json())
-      .then((data) => setCharacters(data))
+      .then((data) => setplanets(data))
       .catch((err) => console.error(err));
   };
 
   useEffect(() => {
-    getCharacter();
+    getPlanet();
   }, [uid]);
 
   return (
@@ -29,12 +29,11 @@ export const CharactersDesc = () => {
       <div className="bg-black vh-100 d-flex align-items-center">
         <div className="container">
           <div className="row">
-            {characters && (
-              <DescriptionCharacter
-                name={characters.result.properties.name}
-                eye_color={characters.result.properties.eye_color}
-                hair_color={characters.result.properties.hair_color}
-                gender={characters.result.properties.gender}
+            {planets && (
+              <DescriptionPlanet
+                name={planets.result.properties.name}
+                population={planets.result.properties.population}
+                terrain={planets.result.properties.terrain}
               />
             )}
           </div>
