@@ -26,7 +26,12 @@ export const CharactersDesc = () => {
 
   return (
     <>
-      {characters && <DescriptionCard name={characters.result.properties.name} />}
+      {characters && <DescriptionCard 
+      name={characters.result.properties.name} 
+      eye_color={characters.result.properties.eye_color}
+      hair_color={characters.result.properties.hair_color}
+      gender={characters.result.properties.gender}
+      />}
     </>
   );
 };
