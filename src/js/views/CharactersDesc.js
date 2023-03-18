@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/demo.css";
 import DescriptionCard from "../component/DescriptionCard";
-import { useParams } from "react-router"; 
+import { useParams } from "react-router";
 
 export const CharactersDesc = () => {
   const { uid } = useParams();
@@ -15,9 +15,9 @@ export const CharactersDesc = () => {
 
   const getCharacter = () => {
     fetch("https://www.swapi.tech/api/people/" + uid)
-      .then(res => res.json())
-      .then(data => setCharacters(data))
-      .catch(err => console.error(err));
+      .then((res) => res.json())
+      .then((data) => setCharacters(data))
+      .catch((err) => console.error(err));
   };
 
   useEffect(() => {
@@ -26,12 +26,20 @@ export const CharactersDesc = () => {
 
   return (
     <>
-      {characters && <DescriptionCard 
-      name={characters.result.properties.name} 
-      eye_color={characters.result.properties.eye_color}
-      hair_color={characters.result.properties.hair_color}
-      gender={characters.result.properties.gender}
-      />}
+      <div className="bg-black vh-100 d-flex align-items-center">
+        <div className="container">
+          <div className="row">
+            {characters && (
+              <DescriptionCard
+                name={characters.result.properties.name}
+                eye_color={characters.result.properties.eye_color}
+                hair_color={characters.result.properties.hair_color}
+                gender={characters.result.properties.gender}
+              />
+            )}
+          </div>
+        </div>
+      </div>
     </>
   );
 };
